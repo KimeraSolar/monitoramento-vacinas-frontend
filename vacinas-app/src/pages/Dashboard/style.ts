@@ -7,7 +7,18 @@ export const Container = styled.div`
     padding: 0;
 `;
 
-export const Background = styled.div`
-    background-color: red;
-    width: 100%;
+export const Main = styled.main`
+    background-color: #E9E9E9;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 32px;
+`;
+
+export const Section = styled.section`
+    background-color: white;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `;
