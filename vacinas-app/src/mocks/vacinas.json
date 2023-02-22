@@ -1,0 +1,65 @@
+[
+    {
+        "name" : "CovidShield",
+        "tempMax" : "8",
+        "tempMin" : "2",
+        "abastecimentoDate" : "30/02/2023 14:32",
+        "vencimentoDate" : "30/02/2024",
+        "status" : "Apropriada",
+        "id" : "001"
+    },
+    {
+        "name" : "CovidShield",
+        "tempMax" : "8",
+        "tempMin" : "2",
+        "abastecimentoDate" : "30/02/2023 14:35",
+        "vencimentoDate" : "30/02/2024",
+        "status" : "Apropriada",
+        "id" : "002"
+    },
+    {
+        "name" : "CoronaVac",
+        "tempMax" : "12",
+        "tempMin" : "-2",
+        "abastecimentoDate" : "31/04/2023 16:03",
+        "vencimentoDate" : "30/02/2025",
+        "status" : "Apropriada",
+        "id" : "003"
+    },
+    {
+        "name" : "CovidShield",
+        "tempMax" : "8",
+        "tempMin" : "2",
+        "abastecimentoDate" : "30/02/2023 14:32",
+        "vencimentoDate" : "30/02/2024",
+        "status" : "Apropriada",
+        "id" : "004"
+    },
+    {
+        "name" : "Pfizer",
+        "tempMax" : "-80",
+        "tempMin" : "-60",
+        "abastecimentoDate" : "30/02/2023 15:36",
+        "vencimentoDate" : "30/02/2024",
+        "status" : "Apropriada",
+        "id" : "005"
+    },
+    {
+        "name" : "AstraZeneca",
+        "tempMax" : "8",
+        "tempMin" : "2",
+        "abastecimentoDate" : "30/02/2023 14:45",
+        "vencimentoDate" : "30/02/2024",
+        "status" : "Apropriada",
+        "id" : "006"
+    },
+    {
+        "name" : "CovidShield",
+        "tempMax" : "8",
+        "tempMin" : "2",
+        "abastecimentoDate" : "30/02/2023 14:37",
+        "vencimentoDate" : "30/02/2024",
+        "status" : "Apropriada",
+        "id" : "007"
+    }
+]

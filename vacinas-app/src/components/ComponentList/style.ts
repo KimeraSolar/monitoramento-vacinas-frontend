@@ -9,9 +9,13 @@ export const ListContainer = styled.div`
     box-shadow: inset 0 7px 7px -7px rgba(0,0,0,0.4);
 `;
 
-export const ListScroll = styled.div`
+type ListScrollProps = {
+    columns : number
+}
+
+export const ListScroll = styled.div<ListScrollProps>`
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: ${ ({columns}) => "auto ".repeat(columns) };
     gap: 20px;
     overflow-y: auto;
     max-height: 450px;

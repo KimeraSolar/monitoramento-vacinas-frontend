@@ -3,11 +3,15 @@ import styled from "styled-components";
 // Vermelho : DD4C4C
 // Azul : 5D90DD
 
-export const Card = styled.div`
-    background-color: #5D90DD;
+type CardProps = {
+    camaraStatus : string,
+}
+
+export const Card = styled.div<CardProps>`
+    background-color: ${ ({camaraStatus}) => camaraStatus === "Normal" ? "#5D90DD" : "#DD4C4C" };
     margin: 8px;
     border-radius: 6px;
-    width: 252px;
+    min-width: 252px;
 `;
 
 export const CardHeader = styled.div`

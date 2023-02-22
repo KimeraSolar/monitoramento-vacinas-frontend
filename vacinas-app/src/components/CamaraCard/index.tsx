@@ -1,4 +1,5 @@
 import { CiTempHigh } from "react-icons/ci";
+import { Camara } from "../../types/Camara";
 import { Button, CamaraName, Card, CardBody, CardFooter, CardHeader, TemperaturaContainer, TemperaturaText } from "./style";
 
 type TemperaturaProps = {
@@ -13,13 +14,13 @@ function Temperatura ({children} : TemperaturaProps){
     )
 }
 
-function CamaraCard (){
+function CamaraCard ({ camaraStatus, camaraTemperature, camaraName} : Camara){
     return (
-        <Card>
-            <CardHeader>Normal</CardHeader>
+        <Card camaraStatus={camaraStatus}>
+            <CardHeader>{camaraStatus}</CardHeader>
             <CardBody>
-                <Temperatura>8.30</Temperatura>
-                <CamaraName>Câmara c01</CamaraName>
+                <Temperatura>{camaraTemperature}</Temperatura>
+                <CamaraName>Câmara {camaraName}</CamaraName>
             </CardBody>
             <CardFooter>
                 <Button>Ver no Mapa</Button>

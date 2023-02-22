@@ -1,0 +1,27 @@
+[
+    {
+        "camaraName" : "c01",
+        "camaraStatus" : "Normal",
+        "camaraTemperature" : "8.30"
+    },
+    {
+        "camaraName" : "c02",
+        "camaraStatus" : "Perigo",
+        "camaraTemperature" : "20.00"
+    },
+    {
+        "camaraName" : "c03",
+        "camaraStatus" : "Normal",
+        "camaraTemperature" : "4.60"
+    },
+    {
+        "camaraName" : "c04",
+        "camaraStatus" : "Perigo",
+        "camaraTemperature" : "20.00"
+    },
+    {
+        "camaraName" : "c05",
+        "camaraStatus" : "Normal",
+        "camaraTemperature" : "-2.00"
+    }
+]
