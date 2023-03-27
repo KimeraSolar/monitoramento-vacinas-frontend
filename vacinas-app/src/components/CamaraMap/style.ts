@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const MapContainer = styled.div`
+export const Container = styled.div`
     width : 90%;
-    height : 350px;
+    height : 500px;
     background-color : #E9E9E9;
     text-align : center;
     margin: 16px 5%;
