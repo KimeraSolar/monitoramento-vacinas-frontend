@@ -2,26 +2,31 @@
     {
         "camaraName" : "c01",
         "camaraStatus" : "Normal",
-        "camaraTemperature" : "8.30"
+        "camaraTemperature" : "8.30",
+        "camaraLocation" : [-20.250705646621373, -40.27221575863521]
     },
     {
         "camaraName" : "c02",
         "camaraStatus" : "Perigo",
-        "camaraTemperature" : "20.00"
+        "camaraTemperature" : "20.00",
+        "camaraLocation" : [-20.26153786295229, -40.264628186978015]
     },
     {
         "camaraName" : "c03",
         "camaraStatus" : "Normal",
-        "camaraTemperature" : "4.60"
+        "camaraTemperature" : "4.60",
+        "camaraLocation" : [-20.256234350307395, -40.26421834306698]
     },
     {
         "camaraName" : "c04",
         "camaraStatus" : "Perigo",
-        "camaraTemperature" : "20.00"
+        "camaraTemperature" : "20.00",
+        "camaraLocation" : [-20.257351328679277, -40.271180868108075]
     },
     {
         "camaraName" : "c05",
         "camaraStatus" : "Normal",
-        "camaraTemperature" : "-2.00"
+        "camaraTemperature" : "-2.00",
+        "camaraLocation": [-20.25660404606398, -40.26530650538461]
     }
 ]
