@@ -1,4 +1,5 @@
 import { CiTempHigh } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 import { Camara } from "../../types/Camara";
 import { Button, CamaraName, Card, CardBody, CardFooter, CardHeader, TemperaturaContainer, TemperaturaText } from "./style";
 
@@ -15,6 +16,7 @@ function Temperatura ({children} : TemperaturaProps){
 }
 
 function CamaraCard ({ camaraStatus, camaraTemperature, camaraName} : Camara){
+    const navigate = useNavigate();
     return (
         <Card camaraStatus={camaraStatus}>
             <CardHeader>{camaraStatus}</CardHeader>
@@ -24,7 +26,7 @@ function CamaraCard ({ camaraStatus, camaraTemperature, camaraName} : Camara){
             </CardBody>
             <CardFooter>
                 <Button>Ver no Mapa</Button>
-                <Button>Ver Detalhes</Button>
+                <Button onClick={() => navigate(`/camara/${camaraName}`)}>Ver Detalhes</Button>
             </CardFooter>
         </Card>
     )

@@ -5,7 +5,7 @@ import logoIcon from "../../assets/vaccine-icon.png";
 export default function Header() {
     return (
         <HeaderBar>
-           <Logo>
+           <Logo href="/">
             <LogoImg src={logoIcon} alt="Logo do MonitoraVax" />
             <LogoText>MonitoraVax</LogoText>
            </Logo>

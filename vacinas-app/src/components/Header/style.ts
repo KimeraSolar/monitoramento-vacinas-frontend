@@ -8,10 +8,11 @@ export const HeaderBar = styled.div`
     padding: 0 32px;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.a`
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-decoration: none;
 `;
 
 export const LogoImg = styled.img`
