@@ -2,7 +2,8 @@ import { icon, LatLngExpression, point } from "leaflet";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet"; 
 import { Container } from "./style";
 import userMarker from '../../assets/user-marker.png';
-import camaraMarker from '../../assets/chamber-marker.png';
+import goodCamaraMarker from '../../assets/good-chamber-marker.png';
+import evilCamaraMarker from '../../assets/evil-chamber-marker.png';
 import camaras from '../../mocks/camaras.json';
 
 function CamaraMap() {
@@ -12,8 +13,12 @@ function CamaraMap() {
         iconUrl: userMarker,
     });
 
-    const camaraIcon = icon({
-        iconUrl: camaraMarker,
+    const evilCamaraIcon = icon({
+        iconUrl: evilCamaraMarker,
+    })
+
+    const goodCamaraIcon = icon({
+        iconUrl: goodCamaraMarker,
     })
 
     return (
@@ -29,9 +34,9 @@ function CamaraMap() {
                 {camaras.map(camara => (
                     <Marker 
                         position={camara.camaraLocation as LatLngExpression}
-                        icon={camaraIcon}
+                        icon={camara.camaraStatus === "Normal" ? goodCamaraIcon : evilCamaraIcon}
                     >
-                        <Popup offset={point(25, 0)}>Câmara {camara.camaraName}</Popup>
+                        <Popup offset={point(25, 0)}><p style={{textAlign: 'center'}}>Câmara {camara.camaraName}<br/>{camara.camaraStatus}</p></Popup>
                     </Marker>
                 ))}
             </MapContainer>
