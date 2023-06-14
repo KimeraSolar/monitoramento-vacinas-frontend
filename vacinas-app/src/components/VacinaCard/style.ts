@@ -5,7 +5,13 @@ type CardProps = {
 }
 
 export const Card = styled.div<CardProps>`
-    background-color : ${ ({vacinaStatus}) => vacinaStatus === "Apropriada" ? "#93D399" : "#DD4C4C"};
+    background-color : ${ ({vacinaStatus}) => {
+            if (vacinaStatus === "Apropriada") return "#93D399"
+            else if (vacinaStatus === "Perigo") return "#DD4C4C"
+            else if (vacinaStatus === "Alerta") return "#EC960A"
+            else return "#BDBDBD"
+        }
+    };
     margin : 8px;
     border-radius : 6px;
     min-width : 400px;
