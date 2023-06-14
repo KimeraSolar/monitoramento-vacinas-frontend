@@ -8,7 +8,13 @@ type CardProps = {
 }
 
 export const Card = styled.div<CardProps>`
-    background-color: ${ ({camaraStatus}) => camaraStatus === "Normal" ? "#5D90DD" : "#DD4C4C" };
+    background-color: ${ ({camaraStatus}) => {
+            if (camaraStatus === "Normal") return "#5D90DD"
+            else if (camaraStatus === "Perigo") return "#DD4C4C"
+            else if (camaraStatus === "Alerta") return "#EC960A"
+            else return "#BDBDBD"
+        }
+    };
     margin: 8px;
     border-radius: 6px;
     min-width: 252px;
