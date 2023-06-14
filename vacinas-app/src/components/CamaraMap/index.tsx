@@ -4,9 +4,9 @@ import { Container } from "./style";
 import userMarker from '../../assets/user-marker.png';
 import goodCamaraMarker from '../../assets/good-chamber-marker.png';
 import evilCamaraMarker from '../../assets/evil-chamber-marker.png';
-import camaras from '../../mocks/camaras.json';
+import { Camara } from "../../types/Camara";
 
-function CamaraMap() {
+function CamaraMap({camaras} : {camaras:Camara[]}) {
     const USER_POSITION: LatLngExpression = [-20.251722001753862, -40.26626320636542];
 
     const userIcon = icon({
