@@ -4,3 +4,8 @@ export interface Camara {
     camaraTemperature : string
     camaraLocation ?: number[]
 }
+
+export interface TemperaturaCamara {
+    key: string,
+    value: number
+}

@@ -1,44 +1,35 @@
 import { LoaderFunction, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
-import TemperaturaGraphic from "../../components/TemperaturaGraphic";
+import TemperaturaChart from "../../components/TemperaturaChart";
 import Title from "../../components/Title";
 import VacinaList from "../../components/VacinaList";
-import vacinas from "../../mocks/vacinas.json";
-import camaras from "../../mocks/camaras.json";
 import { Section } from "../../styles/global";
-import { Camara } from "../../types/Camara";
 import useFetch from "../../hooks/useFetch";
+import temperaturas from "../../mocks/temperaturas.json";
+import { TemperaturaCamara } from "../../types/Camara";
 import { useEffect } from "react";
+import { Vacina } from "../../types/Vacina";
 
 export const camaraLoader = (async ( {params} : LoaderFunctionArgs) =>{
-    const camaraFilterResp = camaras.filter( (c) => {
-        return c.camaraName === params.camaraId;
-    })
-    return {camara: camaraFilterResp                                                                                                                                                                                                                                                                                                                           [0]};
+    // TODO: Retirar o filtro do mock camaras
+    return {camara: params.camaraId};
 }) satisfies LoaderFunction;
 
 function CamaraView (){
-    const {camara} = useLoaderData() as {camara: Camara};
+    const {camara} = useLoaderData() as {camara: string};
 
-    const {data, loading, error} = useFetch(process.env.REACT_APP_MONITORAVAX_URL + '/' + camara.camaraName + '/vacinas');
+    const {data:vacinas_data, loading:vacinas_loading, error:vacinas_error} = useFetch<Vacina[]>(process.env.REACT_APP_MONITORAVAX_URL + '/' + camara + '/vacinas');
+
+    const {data:temperaturas_data, loading:temperaturas_loading, error:temperaturas_error} = useFetch<TemperaturaCamara[]>(process.env.REACT_APP_MONITORAVAX_URL + '/' + camara + '/temperaturas');
 
     useEffect(() => {
-        if(loading){
-            console.log('Aguardando resposta...');
-        } else if (error){
-            console.error(error);
-            console.log(data);
-        } else if (data){
-            console.log('Resposta:', data);
-        } else {
-            console.warn('Algo deu errado D:');
-        }
-    }, [data, loading, error])
+        console.log(temperaturas_data);
+    }, [temperaturas_data]);
 
     return (
         <Section>
-            <Title>{`Dados da Câmara ${camara.camaraName}`}</Title>
-            <TemperaturaGraphic/>
-            <VacinaList vacinaList={data || []}></VacinaList>
+            <Title>{`Dados da Câmara ${camara}`}</Title>
+                <TemperaturaChart temperaturas={temperaturas_data || []}/>
+            <VacinaList vacinaList={vacinas_data || []}></VacinaList>
         </Section>
     )
 }

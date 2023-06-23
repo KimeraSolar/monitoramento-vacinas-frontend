@@ -5,12 +5,13 @@ import CamaraMap from "../../components/CamaraMap";
 import { GerenteContext } from "../../contexts/gerenteContext";
 import { useContext, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
+import { Camara } from "../../types/Camara";
 
 function DashboardPage(){
 
     const gerenteContext = useContext(GerenteContext);
 
-    const {data, loading, error} = useFetch(process.env.REACT_APP_MONITORAVAX_URL + '/' + gerenteContext.username + '/camaras');
+    const {data, loading, error} = useFetch<Camara[]>(process.env.REACT_APP_MONITORAVAX_URL + '/' + gerenteContext.username + '/camaras');
 
     useEffect(() => {
         if(loading){

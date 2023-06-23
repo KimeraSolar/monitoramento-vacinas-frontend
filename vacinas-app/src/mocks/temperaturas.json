@@ -1,0 +1,22 @@
+[
+    {
+        "dataHora": "22/06/2023 21:00",
+        "temperatura": -4.25
+    },
+    {
+        "dataHora": "22/06/2023 21:10",
+        "temperatura": 5.25
+    },
+    {
+        "dataHora": "22/06/2023 21:15",
+        "temperatura": 6.00
+    },
+    {
+        "dataHora": "22/06/2023 21:20",
+        "temperatura": -2.78
+    },
+    {
+        "dataHora": "22/06/2023 21:30",
+        "temperatura": 0.40
+    }
+]
