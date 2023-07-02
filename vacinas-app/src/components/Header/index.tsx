@@ -3,6 +3,7 @@ import { FaBell, FaCog, FaUserCircle } from "react-icons/fa";
 import logoIcon from "../../assets/vaccine-icon.png";
 
 export default function Header() {
+
     return (
         <HeaderBar>
            <Logo href="/">
@@ -11,7 +12,7 @@ export default function Header() {
            </Logo>
             <UserMenu>
                 <FaCog/>
-                <FaBell/>
+                <FaBell onClick={() => window.open('/mensagens', '_self')}/>
                 <FaUserCircle/>
             </UserMenu>
         </HeaderBar>

@@ -34,4 +34,8 @@ export const UserMenu = styled.div`
     gap: 8px;
     font-size: 28px;
     align-items: center;
+
+    > * {
+        cursor: pointer;
+    }
 `;
