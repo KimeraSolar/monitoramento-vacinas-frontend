@@ -27,6 +27,7 @@ function CamaraCard ({ camaraStatus, camaraTemperature, camaraName} : Camara){
             <CardFooter>
                 <Button>Ver no Mapa</Button>
                 <Button onClick={() => navigate(`/camara/${camaraName}`)}>Ver Detalhes</Button>
+                <Button>Remover</Button>
             </CardFooter>
         </Card>
     )
