@@ -4,7 +4,7 @@ export const HeaderBar = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: gray;
+    background-color: #5D90DD;
     padding: 0 32px;
 `;
 
