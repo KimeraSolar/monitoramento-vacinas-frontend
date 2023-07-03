@@ -19,9 +19,12 @@ export const Card = styled.div<CardProps>`
 
 export const CardHeader = styled.div`
     border-bottom: 5px solid rgba(0,0,0,0.35);
-    padding: 4px 8px;
+    padding: 8px;
     font-size: 22px;
     font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 `;
 
 export const CardBody = styled.div`
@@ -48,4 +51,15 @@ export const TextContainer = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 4px;
+`;
+
+export const CardButton = styled.button`
+    border : none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 200;
+    padding: 4px 8px;
+    background-color: rgba(0,0,0,0.35);
+    color: white;
+    cursor: pointer;
 `;
