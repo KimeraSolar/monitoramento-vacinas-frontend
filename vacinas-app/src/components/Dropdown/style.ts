@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
-export const InputContainer = styled.label`
+export const DropdownContainer = styled.label`
     display: flex;
     flex-direction: column;
     gap: 4px;
     width: 300px;
     justify-content: flex-start;
 `
-export const InputLabel = styled.span`
+
+export const DropdownLabel = styled.span`
     color: #686868;
     font-weight: 500;
 `;
 
-export const InputField = styled.input`
+export const DropdownField = styled.select`
     font-size: 1.2rem;
     outline: none;
     padding: 4px;
@@ -21,9 +22,5 @@ export const InputField = styled.input`
 
     :focus, :hover {
         border-color: #5D90DD;
-    }
-
-    :disabled {
-        background-color: #e6e6e6;
     }
 `;
