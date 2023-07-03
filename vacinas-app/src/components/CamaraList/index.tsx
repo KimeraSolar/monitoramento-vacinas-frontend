@@ -12,7 +12,7 @@ function CamaraList ({camaraList} : CamaraListProps) {
 
     return (
         <ComponentList title="Câmaras" columns={2} onCreate={() => navigate('/camara/inserir')}>
-            {camaraList.map( (camara) => (<CamaraCard key={camara.camaraName} camaraName={camara.camaraName} camaraStatus={camara.camaraStatus} camaraTemperature={camara.camaraTemperature}></CamaraCard>) )}
+            {camaraList.map( (camara) => (<CamaraCard key={camara.camaraName} camaraName={camara.camaraName} camaraStatus={camara.camaraStatus} camaraTemperature={parseFloat(camara.camaraTemperature).toFixed(2)}></CamaraCard>) )}
         </ComponentList>        
     )
 }
