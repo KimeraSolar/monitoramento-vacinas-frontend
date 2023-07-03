@@ -14,7 +14,7 @@ function Form({ title, children, onSubmit }: Props) {
         <Title>{title}</Title>
         <FormContentContainer onSubmit={onSubmit}>
             {children}
-            <Button type="submit" onClick={() => {}}>Inserir</Button>
+            <Button type="submit" onClick={() => {}}>Salvar</Button>
         </FormContentContainer>
     </FormContainer>
     );
