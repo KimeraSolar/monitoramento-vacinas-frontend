@@ -11,7 +11,7 @@ export default function Header() {
             <LogoText>MonitoraVax</LogoText>
            </Logo>
             <UserMenu>
-                <FaCog/>
+                <FaCog onClick={() => window.open('/configuracoes', '_self')}/>
                 <FaBell onClick={() => window.open('/mensagens', '_self')}/>
                 <FaUserCircle/>
             </UserMenu>

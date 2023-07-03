@@ -9,6 +9,7 @@ import { GerenteContext } from './contexts/gerenteContext';
 import Mensagens from './pages/Mensagens';
 import InserirCamara from './pages/InserirCamara';
 import AbastecerCamara from './pages/AbastecerCamara';
+import Configuracoes from './pages/Configuracoes';
 
 function App() {
   const router = createBrowserRouter(
@@ -34,6 +35,10 @@ function App() {
       {
         path: "/mensagens",
         element: <Mensagens />,
+      },
+      {
+        path: "/configuracoes",
+        element: <Configuracoes />,
       }
     ]
   )
