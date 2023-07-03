@@ -11,7 +11,7 @@ function DashboardPage(){
 
     const gerenteContext = useContext(GerenteContext);
 
-    const {data, loading, error} = useFetch<Camara[]>(process.env.REACT_APP_MONITORAVAX_URL + '/' + gerenteContext.username + '/camaras');
+    const {data, loading, error} = useFetch<Camara[]>('/' + gerenteContext.username + '/camaras');
 
     useEffect(() => {
         if(loading){

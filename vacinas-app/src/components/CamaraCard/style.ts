@@ -57,6 +57,7 @@ export const Button = styled.button`
     padding: 4px 8px;
     background-color: rgba(0,0,0,0.35);
     color: white;
+    cursor: pointer;
 `;
 
 export const TemperaturaText = styled.span`

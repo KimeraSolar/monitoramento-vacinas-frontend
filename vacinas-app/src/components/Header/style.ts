@@ -4,7 +4,7 @@ export const HeaderBar = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: gray;
+    background-color: #5D90DD;
     padding: 0 32px;
 `;
 
@@ -34,4 +34,8 @@ export const UserMenu = styled.div`
     gap: 8px;
     font-size: 28px;
     align-items: center;
+
+    > * {
+        cursor: pointer;
+    }
 `;

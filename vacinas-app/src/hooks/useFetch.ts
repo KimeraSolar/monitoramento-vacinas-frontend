@@ -6,7 +6,7 @@ export default function useFetch<T>(url : string) {
     const [error, seterror] = useState("");
    
     useEffect(() => {
-        fetch(url)
+        fetch(process.env.REACT_APP_MONITORAVAX_URL + url)
         .then((res) => res.json())
         .then((data) => {
             seterror(data.error)

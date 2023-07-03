@@ -1,7 +1,7 @@
 import { Vacina } from "../../types/Vacina";
 import { CiTempHigh } from "react-icons/ci";
 import { TbVaccine } from "react-icons/tb";
-import { Card, CardBody, CardFooter, CardHeader, TextContainer, CardText } from "./style";
+import { Card, CardBody, CardFooter, CardHeader, TextContainer, CardText, CardButton } from "./style";
 
 type TemperaturaProps = {
     text : string,
@@ -23,6 +23,7 @@ function VacinaCard ( {name, status, tempMax, tempMin, abastecimentoDate, vencim
                 <TextContainer>
                     <TbVaccine/> {name}
                 </TextContainer>
+                <CardButton>Desabastecer</CardButton>
             </CardHeader>
             <CardBody>
                 <Temperatura text="Max">{tempMax}</Temperatura>
