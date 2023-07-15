@@ -7,8 +7,8 @@ type CardProps = {
 export const Card = styled.div<CardProps>`
     background-color : ${ ({vacinaStatus}) => {
             if (vacinaStatus === "Apropriada") return "#93D399"
-            else if (vacinaStatus === "Perigo") return "#DD4C4C"
-            else if (vacinaStatus === "Alerta") return "#EC960A"
+            else if (vacinaStatus === "Perigo") return "#EC960A"
+            else if (vacinaStatus === "Alerta") return "#DD4C4C"
             else return "#BDBDBD"
         }
     };
