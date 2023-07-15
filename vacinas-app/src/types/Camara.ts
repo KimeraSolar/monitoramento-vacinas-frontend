@@ -1,6 +1,6 @@
 export interface Camara {
     camaraName : string,
-    camaraStatus : string,
+    camaraStatus : 'Normal' | 'Alerta' | 'Perigo' | 'Inativa',
     camaraTemperature : string
     camaraLocation ?: number[]
 }

@@ -14,14 +14,7 @@ function VacinaList ({vacinaList} : VacinaListProps) {
     return (
     <ComponentList title="Vacinas" columns={3} onCreate={() => navigate('abastecer')}>
         {vacinaList.map( (vacina) => (
-            <VacinaCard 
-                name={vacina.name} 
-                status={vacina.status} 
-                tempMax={vacina.tempMax} 
-                tempMin={vacina.tempMin} 
-                abastecimentoDate={vacina.abastecimentoDate} 
-                vencimentoDate={vacina.vencimentoDate}
-            />
+            <VacinaCard {... vacina}/>
         ))}
     </ComponentList>
     )

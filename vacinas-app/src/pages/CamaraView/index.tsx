@@ -5,8 +5,9 @@ import VacinaList from "../../components/VacinaList";
 import { Section } from "../../styles/global";
 import useFetch from "../../hooks/useFetch";
 import { TemperaturaCamara } from "../../types/Camara";
-import { useEffect } from "react";
+import { useState } from "react";
 import { Vacina } from "../../types/Vacina";
+import { CamaraContext } from "../../contexts/camaraContext";
 
 export const camaraLoader = (async ( {params} : LoaderFunctionArgs) =>{
     // TODO: Retirar o filtro do mock camaras
@@ -20,16 +21,16 @@ function CamaraView (){
 
     const {data:temperaturas_data, loading:temperaturas_loading, error:temperaturas_error} = useFetch<TemperaturaCamara[]>('/' + camara + '/temperaturas');
 
-    // useEffect(() => {
-    //     console.log(temperaturas_data);
-    // }, [temperaturas_data]);
+    const [camaraId, setCamaraId] = useState(camara);
 
     return (
-        <Section>
-            <Title>{`Dados da Câmara ${camara}`}</Title>
-                <TemperaturaChart temperaturas={temperaturas_data || []}/>
-            <VacinaList vacinaList={vacinas_data || []}></VacinaList>
-        </Section>
+        <CamaraContext.Provider value={{camaraId, setCamaraId}}>
+            <Section>
+                <Title>{`Dados da Câmara ${camara}`}</Title>
+                    <TemperaturaChart temperaturas={temperaturas_data || []}/>
+                <VacinaList vacinaList={vacinas_data || []}></VacinaList>
+            </Section>
+        </CamaraContext.Provider>
     )
 }
 
