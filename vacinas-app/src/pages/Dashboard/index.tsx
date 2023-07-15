@@ -13,18 +13,18 @@ function DashboardPage(){
 
     const {data, loading, error} = useFetch<Camara[]>('/' + gerenteContext.username + '/camaras');
 
-    useEffect(() => {
-        if(loading){
-            console.log('Aguardando resposta...');
-        } else if (error){
-            console.error(error);
-            console.log(data);
-        } else if (data){
-            console.log('Resposta:', data);
-        } else {
-            console.warn('Algo deu errado D:');
-        }
-    }, [data, loading, error])
+    // useEffect(() => {
+    //     if(loading){
+    //         console.log('Aguardando resposta...');
+    //     } else if (error){
+    //         console.error(error);
+    //         console.log(data);
+    //     } else if (data){
+    //         console.log('Resposta:', data);
+    //     } else {
+    //         console.warn('Algo deu errado D:');
+    //     }
+    // }, [data, loading, error])
 
     return (
         <Section>
