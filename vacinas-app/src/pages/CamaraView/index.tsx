@@ -4,7 +4,6 @@ import Title from "../../components/Title";
 import VacinaList from "../../components/VacinaList";
 import { Section } from "../../styles/global";
 import useFetch from "../../hooks/useFetch";
-import temperaturas from "../../mocks/temperaturas.json";
 import { TemperaturaCamara } from "../../types/Camara";
 import { useEffect } from "react";
 import { Vacina } from "../../types/Vacina";
@@ -21,9 +20,9 @@ function CamaraView (){
 
     const {data:temperaturas_data, loading:temperaturas_loading, error:temperaturas_error} = useFetch<TemperaturaCamara[]>('/' + camara + '/temperaturas');
 
-    useEffect(() => {
-        console.log(temperaturas_data);
-    }, [temperaturas_data]);
+    // useEffect(() => {
+    //     console.log(temperaturas_data);
+    // }, [temperaturas_data]);
 
     return (
         <Section>
