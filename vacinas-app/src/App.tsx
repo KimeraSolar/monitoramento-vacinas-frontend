@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { GerenteContext } from './contexts/gerenteContext';
 import Mensagens from './pages/Mensagens';
 import InserirCamara from './pages/InserirCamara';
-import AbastecerCamara from './pages/AbastecerCamara';
+import AbastecerCamara, { abastecimentoCamaraLoader } from './pages/AbastecerCamara';
 import Configuracoes from './pages/Configuracoes';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
       {
         path: "/camara/:camaraId/abastecer",
         element: <AbastecerCamara/>,
-        loader: camaraLoader
+        loader: abastecimentoCamaraLoader
       },
       {
         path: "/camara/inserir",
@@ -44,6 +44,8 @@ function App() {
   )
 
   const [username, setUsername ] = useState('g01');
+  // const [username, setUsername ] = useState('P001E001Ci001G001');
+  
   
   return (
     <GerenteContext.Provider value={{username, setUsername}}>

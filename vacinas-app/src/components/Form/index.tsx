@@ -12,9 +12,9 @@ function Form({ title, children, onSubmit }: Props) {
     return (
     <FormContainer>
         <Title>{title}</Title>
-        <FormContentContainer onSubmit={onSubmit}>
+        <FormContentContainer >
             {children}
-            <Button type="submit" onClick={() => {}}>Salvar</Button>
+            <Button onClick={onSubmit}>Salvar</Button>
         </FormContentContainer>
     </FormContainer>
     );
