@@ -5,6 +5,7 @@ import useFetch from "../../hooks/useFetch";
 import { useEffect, useState } from "react";
 import { handleSubmit } from "../../utils/handleSubmit";
 import { useNavigate } from "react-router-dom";
+import LoadingDialog from "../../components/LoadingDialog";
 
 async function handlePerigoSubmit({temperatura, onSuccess} : {temperatura : number, onSuccess?: () => void}) {
     handleSubmit('configurations/perigolimite', {temperatura}, '', onSuccess);
@@ -37,6 +38,7 @@ function Configuracoes() {
     const [eventosObservedTime, setEventosObservedTime] = useState(manutencaoCamaraData?.tempo);
     const [tempVariacoes, setTempVariacoes] = useState(manutencaoSensoresData?.eventos);
     const [tempVariacoesTime, setTempVariacoesTime] = useState(manutencaoSensoresData?.tempo);
+    const [showLoadingDialog, setShowLoadingDialog] = useState(false);
 
     useEffect(() => {
         setTempLimit(perigoLimiteData?.perigoLimite);
@@ -57,58 +59,66 @@ function Configuracoes() {
         setTempVariacoesTime(manutencaoSensoresData?.tempo);
     }, [manutencaoSensoresData]);
 
+    function submitWithLoading(submitAction: Function, args: Object) {
+        setShowLoadingDialog(true);
+        submitAction(args);
+    }
+
     return (
-        <Section>
-            <Form title="Configurar analise de perigo" onSubmit={() => {tempLimit && handlePerigoSubmit({temperatura: tempLimit, onSuccess: () => navigate(0)})}}>
-                <Input 
-                    label="Próximidade do limite da temperatura ideal (°C)" 
-                    name="tempLimit" value={tempLimit?.toString()} 
-                    onChange={(value) => value ? setTempLimit(parseFloat(value)) : setTempLimit(0)}
-                />
-            </Form>
-            <Form title="Configurar analise de variação brusca de temperatura" onSubmit={() => {difVariacoes && difVariacoesTime && handleVariacaoBruscaSubmit({temperatura: difVariacoes, tempo: difVariacoesTime, onSuccess: () => navigate(0)})}}>
-                <Input 
-                    label="Diferença de temperatura para considerar variação brusca (°C)" 
-                    name="difVariacoes" 
-                    value={difVariacoes?.toString()} 
-                    onChange={(value) => value ? setDifVariacoes(parseFloat(value)) : setDifVariacoes(0)}
-                />
-                <Input 
-                    label="Tempo máximo de observação (segundos)" 
-                    name="difVariacoesTime" 
-                    value={difVariacoesTime?.toString()} 
-                    onChange={setDifVariacoesTime}
-                />
-            </Form>
-            <Form title="Configurar alertas de manutenção em câmara" onSubmit={() => {eventosObserved && eventosObservedTime && handleManutencaoCamaraSubmit({eventos:eventosObserved, tempo:eventosObservedTime, onSuccess: () => navigate(0)})}}>
-                <Input 
-                    label="Quantidade de eventos observados" 
-                    name="eventosObserved" 
-                    value={eventosObserved?.toString()} 
-                    onChange={(value) => value ? setEventosObserved(parseInt(value)) : setEventosObserved(0)}
-                />
-                <Input 
-                    label="Tempo de observação (segundos)" 
-                    name="eventosObservedTime" 
-                    value={eventosObservedTime?.toString()} 
-                    onChange={setEventosObservedTime}
-                />
-            </Form>
-            <Form title="Configurar alertas de manutenção em sensores" onSubmit={() => {tempVariacoes && tempVariacoesTime && handleManutencaoSensoresSubmit({eventos:tempVariacoes, tempo:tempVariacoesTime, onSuccess: () => navigate(0)})}}>
-                <Input 
-                    label="Quantidade de variações bruscas de temperatura observadas" 
-                    name="tempVariacoes" 
-                    value={tempVariacoes?.toString()} 
-                    onChange={(value) => value ? setTempVariacoes(parseInt(value)) : setTempVariacoes(0)}
-                />
-                <Input 
-                    label="Tempo de observação (segundos)" 
-                    name="tempVariacoesTime" 
-                    value={tempVariacoesTime?.toString()} 
-                    onChange={setTempVariacoesTime}
-                />
-            </Form>
-        </Section>
+        <>
+            {showLoadingDialog && <LoadingDialog content="Salvando configurações, aguarde..." />}
+            <Section>
+                <Form title="Configurar analise de perigo" onSubmit={() => {tempLimit && submitWithLoading(handlePerigoSubmit, {temperatura: tempLimit, onSuccess: () => navigate(0)})}}>
+                    <Input 
+                        label="Próximidade do limite da temperatura ideal (°C)" 
+                        name="tempLimit" value={tempLimit?.toString()} 
+                        onChange={(value) => value ? setTempLimit(parseFloat(value)) : setTempLimit(0)}
+                    />
+                </Form>
+                <Form title="Configurar analise de variação brusca de temperatura" onSubmit={() => {difVariacoes && difVariacoesTime && submitWithLoading(handleVariacaoBruscaSubmit, {temperatura: difVariacoes, tempo: difVariacoesTime, onSuccess: () => navigate(0)})}}>
+                    <Input 
+                        label="Diferença de temperatura para considerar variação brusca (°C)" 
+                        name="difVariacoes" 
+                        value={difVariacoes?.toString()} 
+                        onChange={(value) => value ? setDifVariacoes(parseFloat(value)) : setDifVariacoes(0)}
+                    />
+                    <Input 
+                        label="Tempo máximo de observação (segundos)" 
+                        name="difVariacoesTime" 
+                        value={difVariacoesTime?.toString()} 
+                        onChange={setDifVariacoesTime}
+                    />
+                </Form>
+                <Form title="Configurar alertas de manutenção em câmara" onSubmit={() => {eventosObserved && eventosObservedTime && submitWithLoading(handleManutencaoCamaraSubmit, {eventos:eventosObserved, tempo:eventosObservedTime, onSuccess: () => navigate(0)})}}>
+                    <Input 
+                        label="Quantidade de eventos observados" 
+                        name="eventosObserved" 
+                        value={eventosObserved?.toString()} 
+                        onChange={(value) => value ? setEventosObserved(parseInt(value)) : setEventosObserved(0)}
+                    />
+                    <Input 
+                        label="Tempo de observação (segundos)" 
+                        name="eventosObservedTime" 
+                        value={eventosObservedTime?.toString()} 
+                        onChange={setEventosObservedTime}
+                    />
+                </Form>
+                <Form title="Configurar alertas de manutenção em sensores" onSubmit={() => {tempVariacoes && tempVariacoesTime && submitWithLoading(handleManutencaoSensoresSubmit, {eventos:tempVariacoes, tempo:tempVariacoesTime, onSuccess: () => navigate(0)})}}>
+                    <Input 
+                        label="Quantidade de variações bruscas de temperatura observadas" 
+                        name="tempVariacoes" 
+                        value={tempVariacoes?.toString()} 
+                        onChange={(value) => value ? setTempVariacoes(parseInt(value)) : setTempVariacoes(0)}
+                    />
+                    <Input 
+                        label="Tempo de observação (segundos)" 
+                        name="tempVariacoesTime" 
+                        value={tempVariacoesTime?.toString()} 
+                        onChange={setTempVariacoesTime}
+                    />
+                </Form>
+            </Section>
+        </>
     );
 }
 
